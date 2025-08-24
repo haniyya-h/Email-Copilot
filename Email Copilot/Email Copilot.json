@@ -1,0 +1,1537 @@
+{
+  "name": "Email Copilot",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -528,
+        -192
+      ],
+      "id": "7bff3830-9858-45a8-bc33-4326e98efa21",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "NPPS5luKXXLgEOJ5",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU",
+          "mode": "list",
+          "cachedResultName": "Email Copilot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1753486194,
+          "mode": "list",
+          "cachedResultName": "tickets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit#gid=1753486194"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $now }}",
+            "messageId": "={{ $json.id }}",
+            "threadId": "={{ $json.threadId }}",
+            "from": "={{ $json.from }}",
+            "subject": "={{ $json.subject }}",
+            "agentEmail": "haniyyahussain7@gmail.com",
+            "plainText": "={{ $json.textPlain }}",
+            "html": "={{ $json.textHtml }}",
+            "to": "={{ $json.to }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "messageId",
+              "displayName": "messageId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "threadId",
+              "displayName": "threadId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "from",
+              "displayName": "from",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "to",
+              "displayName": "to",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "subject",
+              "displayName": "subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "plainText",
+              "displayName": "plainText",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "html",
+              "displayName": "html",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "draft",
+              "displayName": "draft",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "agentEmail",
+              "displayName": "agentEmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decision",
+              "displayName": "decision",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decisionAt",
+              "displayName": "decisionAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "model",
+              "displayName": "model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "temp",
+              "displayName": "temp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "promptVersion",
+              "displayName": "promptVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "error",
+              "displayName": "error",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "rejectcount",
+              "displayName": "rejectcount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        -64
+      ],
+      "id": "60c000ef-503b-415d-9d4a-503cf05873e2",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SGNvbbYd3yQHHuBF",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://gmail.googleapis.com/gmail/v1/users/me/messages/{{$node[\"Gmail Trigger\"].json.id}}?format=full",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        -192
+      ],
+      "id": "f3cf9089-dfb5-4a94-a816-b7503462b260",
+      "name": "HTTP Request",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "buve5AivCDTrlrNU",
+          "name": "Unnamed credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function header(headers, name) {\n  if (!headers) return '';\n  const h = headers.find(h => h.name?.toLowerCase() === name.toLowerCase());\n  return h?.value || '';\n}\nfunction findPart(parts, want) {\n  if (!parts) return null;\n  for (const p of parts) {\n    if (p.mimeType === want && p.body?.data) return p;\n    const deeper = p.parts ? findPart(p.parts, want) : null;\n    if (deeper) return deeper;\n  }\n  return null;\n}\nfunction b64urlDecode(s='') {\n  return Buffer.from(s.replace(/-/g,'+').replace(/_/g,'/'), 'base64').toString('utf8');\n}\n\nconst msg = item.json; \nconst payload = msg.payload || {};\nconst headers = payload.headers || [];\n\nlet textPlain = '';\nlet textHtml  = '';\n\nif (payload.body?.data && (payload.mimeType === 'text/plain' || payload.mimeType === 'text/html')) {\n  if (payload.mimeType === 'text/plain') textPlain = b64urlDecode(payload.body.data);\n  if (payload.mimeType === 'text/html')  textHtml  = b64urlDecode(payload.body.data);\n}\n\nif (!textPlain) {\n  const p = findPart(payload.parts, 'text/plain');\n  if (p?.body?.data) textPlain = b64urlDecode(p.body.data);\n}\nif (!textHtml) {\n  const p = findPart(payload.parts, 'text/html');\n  if (p?.body?.data) textHtml = b64urlDecode(p.body.data);\n}\n\nitem.json = {\n  id: msg.id,\n  threadId: msg.threadId,\n  from: header(headers, 'From'),\n  to: header(headers, 'To'),\n  subject: header(headers, 'Subject'),\n  textPlain: textPlain || msg.snippet || '',\n  textHtml: textHtml || '',\n  internalDate: msg.internalDate\n};\nreturn item;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        -192
+      ],
+      "id": "7ea9c958-9073-4e18-8682-7ea5b53b6f26",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a concise, friendly customer support agent for our company.\nGoals:\n- Give a direct, accurate answer or the next 1–2 steps.\n- If info is missing, ask exactly what’s needed (1–2 specific questions).\n- Never include internal notes or policy text in the reply.\n- Keep it short (120–180 words). Use paragraphs and bullets if it helps readability.\n- Sign off as “Support Team”.\n\n\nCustomer subject: {{ $json.subject }}\n\nCustomer email (plain): {{ $('Code').item.json.textPlain }}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        368,
+        -64
+      ],
+      "id": "23b49154-17a7-42a8-900e-d98e6fe542c0",
+      "name": "AI Agent - Draft Reply"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        288,
+        128
+      ],
+      "id": "72beb40d-3fdd-4c02-aab4-54c8b7e9901a",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "gxA8tbIC0zrYhgvE",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bd6b21ce-b591-47dc-9d9b-b525b31a3d95",
+              "name": "draft",
+              "value": "={{$node[\"AI Agent - Draft Reply\"].json.response \n  || $node[\"AI Agent - Draft Reply\"].json.agentResponse \n  || $node[\"AI Agent - Draft Reply\"].json.data?.output \n  || $node[\"AI Agent - Draft Reply\"].json.text \n  || $node[\"AI Agent - Draft Reply\"].json.output}}\n",
+              "type": "string"
+            },
+            {
+              "id": "fc399aeb-6dfb-4def-82ce-f4671985d8cc",
+              "name": "approve_url",
+              "value": "=http://localhost:5678/webhook-test/approve?messageId={{$node[\"Merge\"].json.id}}&threadId={{$node[\"Merge\"].json.threadId}}\n",
+              "type": "string"
+            },
+            {
+              "id": "e9781801-ed4c-4646-bd1c-933831a1f8c5",
+              "name": "reject_url",
+              "value": "=http://localhost:5678/webhook-test/reject?messageId={{$node[\"Merge\"].json.id}}&threadId={{$node[\"Merge\"].json.threadId}}\n\n",
+              "type": "string"
+            },
+            {
+              "id": "ac3a1b5e-8536-40c3-aca9-2ca888c07a59",
+              "name": "agentEmail",
+              "value": "support.agent@gmail.com",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        944,
+        -192
+      ],
+      "id": "0039b348-a24e-4355-b712-1aa06390ea10",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        720,
+        -192
+      ],
+      "id": "49c3a49d-d275-411b-a0d2-5705a47857f7",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Append row in sheet').item.json.to }}",
+        "subject": "New Draft Reply Pending Review  ",
+        "message": "=<p><b>From:</b>{{ $('Append row in sheet').item.json.from }} <br/>\n<b>Subject:</b> {{ $('Append row in sheet').item.json.subject }}</p>\n\n<p><b>AI Draft:</b></p>\n<blockquote style=\"white-space:pre-wrap\">{{$node[\"Edit Fields\"].json.draft}}</blockquote>\n\n<p>\n  <a href=\"{{$node['Edit Fields'].json.approve_url}}\">✅ Approve & Send</a>\n  &nbsp;&nbsp;\n  <a href=\"{{$node['Edit Fields'].json.reject_url}}\">❌ Reject</a>\n</p>\n\n<hr/>\n<small>Thread: {{ $('Merge').item.json.threadId }}</small>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1408,
+        -192
+      ],
+      "id": "f6b362d9-c4e3-4338-b07e-c6b025b326cf",
+      "name": "Send a message",
+      "webhookId": "293e3ecf-e69b-48a0-9875-3ba482327c0e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "NPPS5luKXXLgEOJ5",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "Main Workflow\n\n- reads incoming email and generates a draft response using gemini\n- saves data in google sheet\n- asks user is draft is good to send",
+        "width": 384,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -560,
+        -368
+      ],
+      "typeVersion": 1,
+      "id": "ada073e5-ce23-4dd6-b683-9288eed05670",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "If user accepts the email draft then :",
+        "height": 112,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        448
+      ],
+      "id": "8151ff24-e540-4e1b-84de-38fdd857f6c9",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "path": "/approve",
+        "options": {
+          "responseData": "Approved — sending now ✅"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -368,
+        448
+      ],
+      "id": "956b98e4-1f7e-452f-87b1-3637bb2a2a43",
+      "name": "Approve Hook",
+      "webhookId": "227ae60a-b7aa-4f3b-9ad4-53a75fc5215c"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU",
+          "mode": "list",
+          "cachedResultName": "Email Copilot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1753486194,
+          "mode": "list",
+          "cachedResultName": "tickets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit#gid=1753486194"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "messageId",
+              "lookupValue": "={{ $json.query.messageId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -160,
+        448
+      ],
+      "id": "d6f62328-9650-46e8-902d-9eb41c5b8506",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SGNvbbYd3yQHHuBF",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.from }}",
+        "subject": "={{ $json.subject }}",
+        "emailType": "text",
+        "message": "={{ $json.draft }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        48,
+        448
+      ],
+      "id": "b6452e59-c145-4ed5-9f8c-6fbce7e5474e",
+      "name": "Send Approved reply",
+      "webhookId": "a5b7993e-1ee9-462c-9372-5812562906f6",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "NPPS5luKXXLgEOJ5",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "/reject",
+        "options": {
+          "responseData": "Draft Rejected — re-drafting new response"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -368,
+        688
+      ],
+      "id": "c8ea2ca9-7e02-4dbb-a365-239149688c7b",
+      "name": "Reject Hook",
+      "webhookId": "9f4d319b-22e8-4c46-8e1a-d7ebb8574402"
+    },
+    {
+      "parameters": {
+        "content": "If user rejects email draft, then the draft is saved in google sheets and a new draft is written.\n\nthe workflow makes sure the AI agent constantly improving",
+        "height": 208,
+        "width": 256
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -656,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "a62851ce-746a-4fa8-9349-838a6f8fd1d6",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU",
+          "mode": "list",
+          "cachedResultName": "Email Copilot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1753486194,
+          "mode": "list",
+          "cachedResultName": "tickets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit#gid=1753486194"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "draft": "={{ $('Edit Fields').item.json.draft }}",
+            "promptVersion": "v1",
+            "agentEmail": "={{ $json.agentEmail }}",
+            "status": "awaiting_review",
+            "messageId": "={{ $('Merge').item.json.id }}"
+          },
+          "matchingColumns": [
+            "messageId"
+          ],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "messageId",
+              "displayName": "messageId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "threadId",
+              "displayName": "threadId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "from",
+              "displayName": "from",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "to",
+              "displayName": "to",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "subject",
+              "displayName": "subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "plainText",
+              "displayName": "plainText",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "html",
+              "displayName": "html",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "draft",
+              "displayName": "draft",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "agentEmail",
+              "displayName": "agentEmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decision",
+              "displayName": "decision",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decisionAt",
+              "displayName": "decisionAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "model",
+              "displayName": "model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "temp",
+              "displayName": "temp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "promptVersion",
+              "displayName": "promptVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "error",
+              "displayName": "error",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "rejectcount",
+              "displayName": "rejectcount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1184,
+        -192
+      ],
+      "id": "3dc3d57c-359a-4138-bbb2-583a6c3c15d7",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SGNvbbYd3yQHHuBF",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU",
+          "mode": "list",
+          "cachedResultName": "Email Copilot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1753486194,
+          "mode": "list",
+          "cachedResultName": "tickets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit#gid=1753486194"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $now }}",
+            "messageId": "={{$node[\"Approve Hook\"].json.query.messageId}}",
+            "status": "Sent",
+            "decision": "Approved",
+            "decisionAt": "={{ $now }}"
+          },
+          "matchingColumns": [
+            "messageId"
+          ],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "messageId",
+              "displayName": "messageId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "threadId",
+              "displayName": "threadId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "from",
+              "displayName": "from",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "subject",
+              "displayName": "subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "plainText",
+              "displayName": "plainText",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "html",
+              "displayName": "html",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "draft",
+              "displayName": "draft",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "agentEmail",
+              "displayName": "agentEmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decision",
+              "displayName": "decision",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decisionAt",
+              "displayName": "decisionAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "model",
+              "displayName": "model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "temp",
+              "displayName": "temp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "promptVersion",
+              "displayName": "promptVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "error",
+              "displayName": "error",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        256,
+        448
+      ],
+      "id": "dd00f003-29de-4203-9685-d5fc32ecb44c",
+      "name": "Update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SGNvbbYd3yQHHuBF",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU",
+          "mode": "list",
+          "cachedResultName": "Email Copilot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1753486194,
+          "mode": "list",
+          "cachedResultName": "tickets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit#gid=1753486194"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "messageId",
+              "lookupValue": "={{ $('Reject Hook').item.json.query.messageId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        256,
+        688
+      ],
+      "id": "12ac6a4d-ac25-47da-b88b-f92429382f3f",
+      "name": "Get row(s) in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SGNvbbYd3yQHHuBF",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=The last draft for this customer email was rejected.\nYou must generate a *different and improved* version.\nAvoid repeating the same mistakes.\n\nCustomer message:\n{{$json.plainText}}\n\nPrevious rejected draft:\n{{$json.draft}}\n\nGenerate a new reply that is more accurate, helpful, and professional. Output only the improved email body.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        464,
+        688
+      ],
+      "id": "ca7eaf51-488d-4d4b-853f-5bcf64bf1a78",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        416,
+        880
+      ],
+      "id": "f8985286-e97e-47a6-b5a0-43ea8014890d",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "gxA8tbIC0zrYhgvE",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU",
+          "mode": "list",
+          "cachedResultName": "Email Copilot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1753486194,
+          "mode": "list",
+          "cachedResultName": "tickets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Moz-NrJ0e9Sw6tidWbd6qYH91anqojdbtmkobsIZMSU/edit#gid=1753486194"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "messageId": "={{ $('Get row(s) in sheet1').item.json.messageId }}",
+            "draft": "={{ $json.output }}",
+            "rejectcount": "={{ $('incrementing reject count').item.json.rejectCount }}",
+            "promptVersion": "={{ $('incrementing prompt version').item.json.promptVersion }}",
+            "status": "revised_pending_review"
+          },
+          "matchingColumns": [
+            "messageId"
+          ],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "messageId",
+              "displayName": "messageId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "threadId",
+              "displayName": "threadId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "from",
+              "displayName": "from",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "subject",
+              "displayName": "subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "plainText",
+              "displayName": "plainText",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "html",
+              "displayName": "html",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "draft",
+              "displayName": "draft",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "agentEmail",
+              "displayName": "agentEmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decision",
+              "displayName": "decision",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "decisionAt",
+              "displayName": "decisionAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "model",
+              "displayName": "model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "temp",
+              "displayName": "temp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "promptVersion",
+              "displayName": "promptVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "error",
+              "displayName": "error",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "rejectcount",
+              "displayName": "rejectcount",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        816,
+        688
+      ],
+      "id": "378d4ccc-afa4-4e7e-b7d1-e09d9f7ec663",
+      "name": "Update row in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SGNvbbYd3yQHHuBF",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// \"items\" is the array of all input items\nreturn items.map(item => {\n  const r = Number(item.json.rejectCount || 0);\n  item.json.rejectCount = r + 1;\n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        688
+      ],
+      "id": "8dbc0927-a8b4-4a62-a05d-b32ba6d01a06",
+      "name": "incrementing reject count"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Increment promptVersion (like \"v1\" -> \"v2\")\n// If missing, start at v1\n\nlet current = $json.promptVersion || \"v1\";   // fallback\nlet num = parseInt(current.replace(/^v/, \"\"), 10) || 0;\nlet next = \"v\" + (num + 1);\n\n// Expose it downstream\nreturn {\n  ...$json,\n  promptVersion: next,\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        48,
+        688
+      ],
+      "id": "c4b997a7-b423-49e5-a8c0-fa0cd67f8b4d",
+      "name": "incrementing prompt version"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Get row(s) in sheet1').item.json.to }}",
+        "subject": "Updated Draft Ready (after rejection)",
+        "message": "=<p><b>From:</b>{{ $('Get row(s) in sheet1').item.json.from }} <br/> <b>Subject:</b> </p> {{ $('Get row(s) in sheet1').item.json.subject }} <p><b>New AI Draft:</b></p> <blockquote style=\"white-space:pre-wrap\">{{ $json.draft }}</blockquote>  <p>   <a href=\"http://localhost:5678/webhook/approve?messageId={{$json.messageId}}&threadId={{ $('Get row(s) in sheet1').item.json.threadId }}\">✅ Approve & Send</a>   &nbsp;&nbsp;   <a href=\"http://localhost:5678/webhook/reject?messageId={{$json.messageId}}&threadId={{ $('Get row(s) in sheet1').item.json.threadId }}&reason=needs-tweaks\">❌ Reject Again</a> </p>  <hr/> <small>Reject count:{{ $('incrementing reject count').item.json.rejectCount }} </small>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1024,
+        688
+      ],
+      "id": "ff4976ac-9ac1-42d1-8408-0e9eb3b08867",
+      "name": "send draft",
+      "webhookId": "eb75ae0a-7369-498f-b860-dab6e6931a21",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "NPPS5luKXXLgEOJ5",
+          "name": "Gmail account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "AI Agent - Draft Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Draft Reply",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Draft Reply": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "Approve Hook": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send Approved reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Approved reply": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reject Hook": {
+      "main": [
+        [
+          {
+            "node": "incrementing reject count",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "incrementing reject count": {
+      "main": [
+        [
+          {
+            "node": "incrementing prompt version",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "incrementing prompt version": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet2": {
+      "main": [
+        [
+          {
+            "node": "send draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8c4e0e50-74db-432f-9a2f-f5b02407482c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6789c6cb8eb36c4551d52fbaf38ca4c18aaff365c9c09ced285eb092cd7a732f"
+  },
+  "id": "6MoqBVVL1gzXOoOk",
+  "tags": []
+}
